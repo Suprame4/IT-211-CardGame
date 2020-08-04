@@ -4,7 +4,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-public class cardGuessingGame {
+public class cardGame {
     // File representing the folder that you select using a FileChooser
     static final File dir = new File("cards");
 
