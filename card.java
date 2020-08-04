@@ -1,10 +1,12 @@
+import java.awt.image.BufferedImage;
+
 public class card {
-    private java.awt.image.BufferedImage cardImage;
+    private BufferedImage cardImage;
     private int value;
     private String rank, suit;
 
     
-    public card(String rank, String suit, int value, java.awt.image.BufferedImage cardImage) {
+    public card(String rank, String suit, int value, BufferedImage cardImage) {
         this.suit = suit;
         this.rank = rank;
         this.value = value;
@@ -17,7 +19,7 @@ public class card {
     }
 
     //Returns image for a card
-    public void getCardImage(BufferedImage card) {
+    public void getCardImage(BufferedImage cardImage) {
 
     }
 

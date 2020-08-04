@@ -6,7 +6,7 @@ import javax.imageio.ImageIO;
 
 public class cardGuessingGame {
     // File representing the folder that you select using a FileChooser
-    static final File dir = new File("../../cards");
+    static final File dir = new File("cards");
 
     // array of supported extensions (use a List if you prefer)
     static final String[] EXTENSIONS = new String[]{"gif"};
@@ -26,8 +26,8 @@ public class cardGuessingGame {
     };
 
     public static void main(String[] args) throws IOException {
-        card aceOfSpades = new card("Ace","Spades", 1,ImageIO.read(new File ("../../cards/as.gif")));
-        card twoOfSpades = new card ("Two", "Spades", 2, ImageIO.read(new File ("../../cards/2s.gif")));
+        card aceOfSpades = new card("Ace","Spades", 1,ImageIO.read(new File ("cards/as.gif")));
+        card twoOfSpades = new card ("Two", "Spades", 2, ImageIO.read(new File ("cards/2s.gif")));
 
         System.out.println(aceOfSpades.toString());
     }

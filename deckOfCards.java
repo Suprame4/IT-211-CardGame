@@ -7,11 +7,6 @@ public class deckOfCards {
         String[] faces;
     }
     public static void main(String[] args) {
-        tableData();
-    }
-
-    public static void tableData() {
         tableData.loadFile("data.csv");
     }
-
 }
