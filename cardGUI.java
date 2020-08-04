@@ -11,8 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
-
 public class cardGUI implements ActionListener{
 	private int count = 0;
 	private JLabel card;
@@ -35,18 +33,12 @@ public class cardGUI implements ActionListener{
 		container.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
     container.setLayout(new GridLayout(4, 13));
     
-    int n = 0;         // Which card.
-    int xPos = 0;      // Where it should be placed initially.
-    int yPos = 0;
-
+    int n = 0;// Which card.
     for(card c : deckOfCards.deck) {
       card = new JLabel(new ImageIcon(deckOfCards.deck[n].getCardImage()));
       card.setSize(50, 80);
       container.add(card);
-      card.setLocation(xPos, yPos);
       deckOfCards.deck[n] = c;
-      xPos += 5;
-      yPos += 4;
       n++;
     }
     
