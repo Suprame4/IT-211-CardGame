@@ -4,13 +4,13 @@ public class card {
     private BufferedImage cardImage;
     private String rank;
     private int value;
-    private Suit suit;
+    private String suit;
 
     public static enum Suit{
-        SPADES ("Spades", "s"),
-        CLUBS ("Clubs", "c"),
-        DIAMONDS ("Diamonds", "d"),
-        HEARTS ("Hearts", "h");
+        SPADES   ("Spades",  "s"),
+        CLUBS    ("Clubs",   "c"),
+        DIAMONDS ("Diamonds","d"),
+        HEARTS   ("Hearts",  "h");
 
         private final String suit;
         private final String imgAbbr;
@@ -32,19 +32,19 @@ public class card {
     }
 
     public static enum Rank {
-        ACE ("Ace", 1, "a"),
-        TWO ("Two", 2, "2"),
-        THREE ("Three", 3, "3"),
-        FOUR ("Four", 4, "4"),
-        FIVE ("Five", 5, "5"),
-        SIX ("Six", 6, "6"),
-        SEVEN ("Seven", 7, "7"),
-        EIGHT ("Eight", 8, "8"),
-        NINE ("Nine", 9, "9"),
-        TEN ("Ten", 10, "t"),
-        JACK ("Jack", 11, "j"),
-        QUEEN ("Queen", 12, "q"),
-        KING ("King", 13, "k");
+        ACE     ("Ace", 1, "a"),
+        TWO     ("Two", 2, "2"),
+        THREE   ("Three", 3, "3"),
+        FOUR    ("Four", 4, "4"),
+        FIVE    ("Five", 5, "5"),
+        SIX     ("Six", 6, "6"),
+        SEVEN   ("Seven", 7, "7"),
+        EIGHT   ("Eight", 8, "8"),
+        NINE    ("Nine", 9, "9"),
+        TEN     ("Ten", 10, "t"),
+        JACK    ("Jack", 11, "j"),
+        QUEEN   ("Queen", 12, "q"),
+        KING    ("King", 13, "k");
 
         private final String rank;
         private final int value;
@@ -72,8 +72,9 @@ public class card {
             return this.imgAbbr;
         }
     }
-    
-    public card(String rank, Suit suit, int value, BufferedImage cardImage) {
+
+    //card constructor
+    public card(String rank, String suit, int value, BufferedImage cardImage) {
         this.suit = suit;
         this.rank = rank;
         this.value = value;

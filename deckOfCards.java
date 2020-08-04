@@ -10,19 +10,22 @@ public class deckOfCards {
     public deckOfCards() throws IOException {
         deck = new card[52];
         int i = 0;
+        //for loop through 4 suits
         for (card.Suit s : card.Suit.values()){
+            // for loop through 13 ranks
             for (card.Rank r : card.Rank.values()){
-                deck[i] = new card (r.getRank(), s, r.getRankValue(), ImageIO.read(new File ("cards/" + s.getImgAbbr() + r.getImgAbbr() + ".gif")));
+                deck[i] = new card (r.getRank(),
+                                    s.getSuit(),
+                                    r.getRankValue(),
+                                    ImageIO.read(new File("cards/" + r.getImgAbbr() + s.getImgAbbr() + ".gif")));
+                System.out.println(deck[i]);                    
                 i++;
             }
         }
     }
-    public static void main(String[] args) {
-
-    }
 
     public void shuffle() {
-        
+
     }
 
     public void deal(){
