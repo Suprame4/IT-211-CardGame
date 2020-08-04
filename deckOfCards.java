@@ -4,7 +4,7 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 
 public class deckOfCards {
-	private card[] deck;
+	public static card[] deck;
 	private int currentCard; // index of the next card to be dealt
 
 	public card[] createDeckOfCards() throws IOException {
@@ -33,7 +33,7 @@ public class deckOfCards {
 		for(int i = 0; i < deck.length; i++) {
 			//set variable equal to a random number
 			int num = rand.nextInt(deck.length - 1);
-			//temp number becomes equal 
+			
 			temp = deck[i];
 			deck[i] = deck[num];
 			deck[num] = temp;
@@ -42,7 +42,9 @@ public class deckOfCards {
 		return deck;
 	}
 
-	public void deal(){
-		
+	public card[] deal(){
+		if (currentCard < deck.length) {
+		}
+		return deck;
 	}
 }
