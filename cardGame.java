@@ -5,7 +5,7 @@ public class cardGame {
 
 	public static void main(String[] args) throws IOException {
 		deck.createDeckOfCards();
-		deck.shuffle();
+		// deck.shuffle();
 		new cardGUI();
 	}
 }
