@@ -55,9 +55,11 @@ public class cardGUI implements ItemListener, ActionListener {
     // dropdown listeners
     suits.addItemListener(this);
     ranks.addItemListener(this);
-
+    suitGuess = suits.getSelectedItem().toString();
+    rankGuess = ranks.getSelectedItem().toString();
+    combinedGuess = rankGuess + " of " + suitGuess;
     // Instructions for game
-    dropDownText = new JTextArea("Guess the next card from the suit and rank selection\nPlease select something in BOTH drop downs first or it will not work and return null");
+    dropDownText = new JTextArea("Guess the next card from the suit and rank selection");
     dropDownText.setEditable(false);
 
     dropDownContainer = new JPanel(new GridLayout(1, 3));
@@ -117,6 +119,7 @@ public class cardGUI implements ItemListener, ActionListener {
     if (combinedGuess.equalsIgnoreCase(currentCard.toString()))
       wins++;
 
+    //this dumb method is needed to refresh the label to change the image
     imgHolder.repaint();
 
     cardsLeft--;
@@ -124,16 +127,17 @@ public class cardGUI implements ItemListener, ActionListener {
     gameInfo.setText("Correct Guesses: " + wins + "\nTotal Attempts: " + count + "\nCards Left: " + cardsLeft);
   }
 
+  //called when a dropdown is changed
   @Override
   public void itemStateChanged(ItemEvent e) {
     Object source = e.getItemSelectable();
-    
+    //change if dropdown is used
     if(source == suits)
       suitGuess = suits.getSelectedItem().toString();
-
+    //change if dropdown is used
     if(source == ranks)
       rankGuess = ranks.getSelectedItem().toString();
-
+    //make combinedguess equal to new variables
     combinedGuess = rankGuess + " of " + suitGuess;
   }
 }
