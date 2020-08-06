@@ -39,8 +39,10 @@ public class cardGUI implements ItemListener, ActionListener {
 
 
   public cardGUI() throws IOException {
+    
     // Frame creation
     window = new JFrame("Card Game");
+
     // gameContainer creation
     gameContainer = new JPanel(new GridLayout(3, 3, 10, 10));
 
@@ -55,13 +57,17 @@ public class cardGUI implements ItemListener, ActionListener {
     // dropdown listeners
     suits.addItemListener(this);
     ranks.addItemListener(this);
+
+    //set variables to not be null
     suitGuess = suits.getSelectedItem().toString();
     rankGuess = ranks.getSelectedItem().toString();
     combinedGuess = rankGuess + " of " + suitGuess;
+
     // Instructions for game
     dropDownText = new JTextArea("Guess the next card from the suit and rank selection");
     dropDownText.setEditable(false);
 
+    //Used to keep dropdowns together in the overall window grid
     dropDownContainer = new JPanel(new GridLayout(1, 3));
     dropDownContainer.add(ranks);
     dropDownContainer.add(new JLabel("of", JLabel.CENTER));
@@ -80,6 +86,7 @@ public class cardGUI implements ItemListener, ActionListener {
     window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     window.add(gameContainer);
 
+    //setting up whole game container as a grid and add components
     gameContainer.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
     gameContainer.add(new JLabel(cardBack));
     gameContainer.add(imgHolder);
@@ -88,6 +95,7 @@ public class cardGUI implements ItemListener, ActionListener {
     gameContainer.add(buttonGo);
     gameContainer.add(dropDownContainer);
 
+    //change window size to components and set it to visible
     window.pack();
     window.setVisible(true);
   }
@@ -103,19 +111,22 @@ public class cardGUI implements ItemListener, ActionListener {
     }
   }
 
+  //method called when button is pressed
   @Override
   public void actionPerformed(ActionEvent e) {
     currentCard = cardGame.deck.deal();
 
     if (currentCard == null)
       return;
-      
+    //set image to current card
     if (cardsLeft > 0)
       cardImg.setImage(currentCard.getCardImage());
 
+    //this was for testing
     System.out.println(currentCard.toString());
     System.out.println(combinedGuess);
 
+    //checks the dropdowns to the currentcard
     if (combinedGuess.equalsIgnoreCase(currentCard.toString()))
       wins++;
 

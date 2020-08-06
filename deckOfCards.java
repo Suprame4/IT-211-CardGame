@@ -41,8 +41,10 @@ public class deckOfCards {
 		currentCard = 0;
 	}
 
+	//returns current card and increments for the next time this is run
 	public static card deal(){
 		if (currentCard < deck.length) {
+			//card Return Value
 			card cRValue = deck[currentCard];
 			currentCard++;
 			return cRValue;
