@@ -5,9 +5,9 @@ import javax.imageio.ImageIO;
 
 public class deckOfCards {
 	public static card[] deck;
-	private int currentCard; // index of the next card to be dealt
+	public static int currentCard; // index of the next card to be dealt
 
-	public card[] createDeckOfCards() throws IOException {
+	public deckOfCards() throws IOException {
 		deck = new card[52];
 		int i = 0;
 		//for loop through 4 suits
@@ -21,10 +21,10 @@ public class deckOfCards {
 				i++;
 			}
 		}
-		return deck;
+		currentCard = 0;
 	}
 
-	public card[] shuffle() {
+	public void shuffle() {
 		//create randomizer variable
 		Random rand = new Random();
 		card temp;
@@ -37,14 +37,18 @@ public class deckOfCards {
 			temp = deck[i];
 			deck[i] = deck[num];
 			deck[num] = temp;
-			System.out.println(deck[i]);
 		}
-		return deck;
+		currentCard = 0;
 	}
 
-	public card[] deal(){
+	public static card deal(){
 		if (currentCard < deck.length) {
+			card cRValue = deck[currentCard];
+			currentCard++;
+			return cRValue;
+		} else{
+			System.out.println("Out of cards error");
+			return null;
 		}
-		return deck;
 	}
 }
